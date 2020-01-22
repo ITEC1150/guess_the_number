@@ -1,7 +1,7 @@
 import random
 
 correct = 'you guessed correctly!'
-too_low = 'too low'
+too_low = 'too low!!!'
 too_high = 'too high'
 
 
@@ -31,19 +31,22 @@ def check_guess(guess, secret):
 
 
 def main():
-
+    guesses = 0
     (low, high) = configure_range()
     secret = generate_secret(low, high)
     try: 
         while True:
             guess = get_guess()
             result = check_guess(guess, secret)
+            guesses += 1
+            print(f" {guesses} number of guesses you have taken")
             print(result)
 
             if result == correct:
                 break
     except ValueError:
         print("Enter a prper number")
+
 
 
 
