@@ -34,14 +34,17 @@ def main():
 
     (low, high) = configure_range()
     secret = generate_secret(low, high)
+    try: 
+        while True:
+            guess = get_guess()
+            result = check_guess(guess, secret)
+            print(result)
 
-    while True:
-        guess = get_guess()
-        result = check_guess(guess, secret)
-        print(result)
+            if result == correct:
+                break
+    except ValueError:
+        print("Enter a prper number")
 
-        if result == correct:
-            break
 
 
 if __name__ == '__main__':
