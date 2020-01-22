@@ -5,6 +5,7 @@ too_low = 'too low'
 too_high = 'too high'
 
 
+
 def configure_range():
     '''Set the high and low values for the random number'''
     return 1, 10
@@ -32,11 +33,14 @@ def check_guess(guess, secret):
 
 def main():
 
+    counter = 0
     (low, high) = configure_range()
     secret = generate_secret(low, high)
     try: 
         while True:
+            counter = counter +  1
             guess = get_guess()
+            count(counter)
             result = check_guess(guess, secret)
             print(result)
 
@@ -45,6 +49,8 @@ def main():
     except ValueError:
         print("Enter a prper number")
 
+def count(num):
+    print(f'Guess Counter: {num}')
 
 
 if __name__ == '__main__':
